@@ -5,11 +5,11 @@ from telethon.errors.rpcerrorlist import PhoneNumberInvalidError
 import os
 from pathlib import Path
 import glob
-from xtrabot.xtra import start_module
+from xtrabot.xtrautil import start_module
 
 bot.start()
 
-path = 'userbot/plugins/*.py'
+path = 'xtrabot/modules/*.py'
 files = glob.glob(path)
 for name in files:
     with open(name) as f:
