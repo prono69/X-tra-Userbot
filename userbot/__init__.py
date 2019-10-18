@@ -30,11 +30,20 @@ if not bool(ENV):
 else:
     STRING_SESSION = os.environ.get("STRING_SESSION", None)
 
-API_ID = os.environ.get("API_ID", None)
-API_HASH = os.environ.get("API_HASH", None)
+DB_URI = os.environ.get("DATABASE_URL", None)
+TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TEMP_DOWNLOAD_DIRECTORY", None)
+PRIVATE_GROUP_ID = os.environ.get("PRIVATE_GROUP_ID", None)
+    if PRIVATE_GROUP_ID != None:
+    try:
+        PRIVATE_GROUP_ID = int(PRIVATE_GROUP_ID)
+    except ValueError:
+        raise ValueError("Invalid Private Group ID. Make sure your ID is starts with -100 and make sure that it is only numbers.")
+        quit(1)
 
 if STRING_SESSION in os.environ:
     client = TelegramClient(StringSession(STRING_SESSION), API_ID, API_HASH)
+else:
+    client = TelegramClient("one", API_ID, API_HASH)
 
 class PPESupport(object):
     BOTLOG_CHATID = int(os.environ.get("BOTLOG_CHATID", None))
