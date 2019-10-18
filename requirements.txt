@@ -1,0 +1,3 @@
+telethon
+pylast
+python-dotenv
