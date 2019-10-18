@@ -1,11 +1,11 @@
-from userbot import client
+from xtrabot import client
 from sys import argv
 import sys
 from telethon.errors.rpcerrorlist import PhoneNumberInvalidError
 import os
 from pathlib import Path
 import glob
-from userbot.xtra import start_module
+from xtrabot.xtra import start_module
 
 bot.start()
 
