@@ -33,9 +33,9 @@ class Misc(loader.Module):
         try:
             start_module(path.stem.replace(".py", ""))
         except Exception as e:
-            await utils.answer(text, str(e))
+            await utils.answer(text, str(e), call="edit")
             return
         else:
-            await utils.answer(text, (self.xconfig["installed message"]).format(path.stem.replace(".py", "")))
+            await utils.answer(text, (self.xconfig["installed message"]).format(path.stem.replace(".py", "")), call="edit")
 
 Module(Misc)
