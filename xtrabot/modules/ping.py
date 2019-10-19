@@ -32,6 +32,6 @@ class Ping(loader.Module):
         await event.edit(self.xconfig["PING"]+ms)
 
     async def aboutpingcmd(self, event):
-        await event.edit(self.xconfig["PING"].about())
+        await event.edit((self.xconfig["PING"]).about())
 
 Module(Ping)
