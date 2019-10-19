@@ -17,4 +17,5 @@ async def answer(event, text, **args):
             )
             await event.delete()
     else:
-        await action(text)
+        tmp = await action(text)
+        return tmp
