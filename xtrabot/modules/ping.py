@@ -14,11 +14,11 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-from xtrabot import loader
+from xtrabot import loader, utils
 from xtrabot.xtrautil import Module
 from datetime import datetime
 
-class Ping(loader.Module):
+class Util(loader.Module):
     def __init__(self):
         self.name = "ping"
         super().__init__([self.ping, self.aboutping])
@@ -31,8 +31,7 @@ class Ping(loader.Module):
         ms = (end - start).microseconds / 1000
         await event.edit("Pong!\n{}ms".format(ms))
 
-    async def aboutping(self, event):
-        abbout = self.xconfig["PING"]
-        await event.edit(abbout.about())
+    async def help(self, event):
+        await event.edit("No help yet.")
 
-Module(Ping)
+Module(Util)
