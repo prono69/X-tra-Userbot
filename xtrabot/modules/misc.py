@@ -21,7 +21,7 @@ from pathlib import Path
 class Misc(loader.Module):
     def __init__(self):
         self.name = "misc"
-        super().__init__(func=self.install)
+        super().__init__(self.install)
         self.addxconfig("installed message", "Yay, {shortname} has been added to your modules!!", "the message to the left is the one pops up when the module is installed")
         self.addxconfig("directory", "xtrabot/modules/", "is the modules directory")
 
