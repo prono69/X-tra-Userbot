@@ -28,7 +28,7 @@ class Exec(loader.Module):
         self.name = "exec"
         super().__init__(exec1)
 
-    def exec1(self, event):
+    async def exec1(self, event):
         await utils.answer(event, "Processing ...")
         cmd = event.text.split(" ", maxsplit=1)[1]
         reply_to_id = event.message.id
