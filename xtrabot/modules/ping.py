@@ -15,10 +15,10 @@
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 from xtrabot import loader
+from xtrabot.xtrautil import Module
 from datetime import datetime
 
-def start(eb):
-    eb(Ping)
+Module(Ping)
 
 class Ping(loader.Module):
     def __init__(self):
