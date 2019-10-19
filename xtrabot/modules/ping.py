@@ -24,14 +24,15 @@ class Ping(loader.Module):
         super().__init__([self.pingcmd, self.aboutpingcmd])
         self.addxconfig("PING", "Pong!\n", "Defines Ping Message")
 
-    async def pingcmd(self, event):
+    async def ping(self, event):
         start = datetime.now()
         await event.edit(self.xconfig["PING"])
         end = datetime.now()
         ms = (end - start).microseconds / 1000
         await event.edit("Pong!\n{}ms".format(ms))
 
-    async def aboutpingcmd(self, event):
-        await event.edit((self.xconfig["PING"]).about())
+    async def aboutping(self, event):
+        abbout = (self.xconfig["PING"]).about()
+        await event.edit(abbout)
 
 Module(Ping)
