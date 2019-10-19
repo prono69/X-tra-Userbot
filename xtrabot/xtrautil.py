@@ -15,8 +15,8 @@
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 from xtrabot import UniSupport as uni, client, PPESupport as ppe
-from xtrabot.compat import userbot as xtrabot.compat.userbot, uniborg as xtrabot.compat.uniborg
-from xtrabot.compat.uniborg import sql_helpers as xtrabot.compat.uniborg.sql_helpers
+import xtrabot.compat.userbot
+import xtrabot.compat.uniborg
 import re
 from telethon import events
 import sys
