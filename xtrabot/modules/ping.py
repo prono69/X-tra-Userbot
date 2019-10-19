@@ -26,12 +26,12 @@ class Util(loader.Module):
 
     async def ping(self, event):
         start = datetime.now()
-        await event.edit(self.xconfig["PING"])
+        await utils.answer(event, self.xconfig["PING"])
         end = datetime.now()
         ms = (end - start).microseconds / 1000
         await event.edit("Pong!\n{}ms".format(ms))
 
     async def help(self, event):
-        await event.edit("No help yet.")
+        await utils.answer(event, "No help yet.")
 
 Module(Util)
