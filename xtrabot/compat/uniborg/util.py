@@ -18,7 +18,7 @@ import math
 import os
 import time
 
-from xtrabot.xtrautil import SupportMods
+from xtrabot.compat.compatconfig import SupportMods
 
 from telethon.tl.functions.messages import GetPeerDialogsRequest
 
