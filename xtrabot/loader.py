@@ -42,11 +42,4 @@ class Module():
                 client.add_event_handler(func, events.NewMessage(pattern=funcmd, outgoing=True))
 
     def addxconfig(self, name, value, about=""):
-        def attr(e,n,v): #will work for any object you feed it, but only that object
-            class tmp(type(e)):
-                def attr(self,n,v):
-                    setattr(self,n,v)
-                    return self
-            return tmp(e).attr(n,v)
-        object1=attr(value,about,about)
-        self.xconfig.update({name: object1})
+        self.xconfig.update({name: [value, about]})
