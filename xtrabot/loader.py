@@ -21,13 +21,14 @@ xconfig = {}
 func_name = {}
 
 class Module():
-    def __init__(self, cls):
+    def __init__(self, func):
         try:
             self.name
         except NameError:
             self.name = "untitled"
-        cmd = cls.__dict__
-        for i in cmd:
+        if type(func) is not list:
+            func = [func]
+        for i in func:
             func = cmd[i]
             if func.__name__.endswith("cmd"):
                 funcmd = re.compile("^."+func.__name__.replace("cmd", ""))
