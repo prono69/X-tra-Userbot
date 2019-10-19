@@ -21,7 +21,7 @@ from datetime import datetime
 class Ping(loader.Module):
     def __init__(self):
         self.name = "ping"
-        super().__init__([self.pingcmd, self.aboutpingcmd])
+        super().__init__([self.ping, self.aboutping])
         self.addxconfig("PING", "Pong!\n", "Defines Ping Message")
 
     async def ping(self, event):
