@@ -27,7 +27,7 @@ class Misc(loader.Module):
 
     async def install(self, event):
         reply = await event.get_reply_message()
-        text = await utils.answer(event, "Processing", call="reply")
+        text = await event.reply("Processing...")
         hmm = await event.client.download_media(reply, self.xconfig["directory"])
         path = Path(hmm)
         try:
