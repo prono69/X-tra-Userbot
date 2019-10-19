@@ -23,6 +23,7 @@ from pathlib import Path
 
 import xtrabot.compat.userbot as userb
 import xtrabot.compat.uniborg as unib
+import xtrabot.compat.uniborg.sql_helpers as sqlh
 
 def start_module(shortname):
     path = Path(f"xtrabot/modules/{shortname}.py")
@@ -30,13 +31,13 @@ def start_module(shortname):
     spec = importlib.util.spec_from_file_location(name, path)
     mod = importlib.util.module_from_spec(spec)
     try:
-        mod.start(Module)
+        mod.__dict__["start"](Module)
     except Exception as e:
         print(e)
         sys.modules["userbot.modules"] = userb
         sys.modules["userbot"] = userb
         sys.modules["uniborg"] = unib
-        sys.modules["sql_helpers"] = unib.sql_helpers
+        sys.modules["sql_helpers"] = sqlh
         mod.borg = uni.borg
         mod.Config = uni
         spec.loader.exec_module(mod)
