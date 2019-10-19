@@ -16,7 +16,7 @@
 
 from xtrabot import PPESupport as ppe, UniSupport as uni
 import re
-from telthon import events
+from telethon import events
 class SupportMods():
     def uniadmin(self, pattern=None, **args):
         args["pattern"] = re.compile(uni.COMMAND_HAND_LER + pattern)
