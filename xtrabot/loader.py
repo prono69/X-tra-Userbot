@@ -48,5 +48,5 @@ class Module():
                     setattr(self,n,v)
                     return self
             return tmp(e).attr(n,v)
-        object=attr(value,about,about)
+        object1=attr(value,about,about)
         self.xconfig.update({name: object1})
