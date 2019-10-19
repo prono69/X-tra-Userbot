@@ -21,7 +21,7 @@ from datetime import datetime
 class Util(loader.Module):
     def __init__(self):
         self.name = "ping"
-        super().__init__([self.ping, self.help])
+        super().__init__([self.ping, self.help, self.abtping])
         self.addxconfig("PING", "Pong!\n", "Defines Ping Message")
 
     async def ping(self, event):
@@ -33,5 +33,8 @@ class Util(loader.Module):
 
     async def help(self, event):
         await utils.answer(event, "No help yet.")
+
+    async def abtping(self, event):
+        await utils.answer(event, self.xconfig["PING"][1])
 
 Module(Util)
