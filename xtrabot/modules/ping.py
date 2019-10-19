@@ -18,8 +18,6 @@ from xtrabot import loader
 from xtrabot.xtrautil import Module
 from datetime import datetime
 
-Module(Ping)
-
 class Ping(loader.Module):
     def __init__(self):
         self.name = "ping"
@@ -35,3 +33,5 @@ class Ping(loader.Module):
 
     async def aboutpingcmd(self, event):
         await event.edit(self.xconfig["PING"].about())
+
+Module(Ping)
