@@ -28,7 +28,7 @@ class Misc(loader.Module):
     async def install(self, event):
         reply = await event.get_reply_message()
         text = await utils.answer(event, "Processing", call="reply")
-        hmm = await self.client.download_file(reply, self.xconfig["directory"])
+        hmm = await event.client.download_media(reply, self.xconfig["directory"])
         path = Path(hmm)
         try:
             start_module(path.stem.replace(".py", ""))
