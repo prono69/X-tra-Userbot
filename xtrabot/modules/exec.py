@@ -23,14 +23,14 @@ import asyncio
 import sys
 import io
 
-class Exec(loader.Module):
+class Eval(loader.Module):
     def __init__(self):
-        self.name = "exec"
-        super().__init__(self.exec1)
+        self.name = "eval"
+        super().__init__(self.eval)
         self.addxconfig("exec", "Processing...", "This is the Processing message when the script is being run")
 
-    async def exec1(self, event):
-        await utils.answer(event, self.xconfig["exec"])
+    async def eval(self, event):
+        await utils.answer(event, self.xconfig["exec"][0])
         cmd = event.text.split(" ", maxsplit=1)[1]
         reply_to_id = event.message.id
         if event.reply_to_msg_id:
@@ -72,4 +72,4 @@ class Exec(loader.Module):
         )
         return await locals()['__aexec'](event)
 
-Module(Exec)
+Module(Eval)
