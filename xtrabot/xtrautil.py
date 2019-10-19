@@ -31,27 +31,15 @@ def start_module(shortname):
     mod = importlib.util.module_from_spec(spec)
     try:
         mod.start(Module)
-    except:
-        try:
-            try:
-                mod.__dict__["admin_cmd"]
-            except:
-                mod.__dict__["events.NewMessage"]
-        except:
-            try:
-                mod.__dict__["register"]
-            except:
-                print("This is not a valid plugin. Although it might be a UniBorg plugin it is not supported.")
-            else:
-                sys.modules["userbot.modules"] = userb
-                sys.modules["userbot"] = userb
-                spec.loader.exec_module(mod)
-        else:
-            sys.modules["uniborg"] = unib
-            sys.modules["sql_helpers"] = unib.sql_helpers
-            mod.borg = uni.borg
-            mod.Config = uni
-            spec.loader.exec_module(mod)
+    except Exception as e:
+        print(e)
+        sys.modules["userbot.modules"] = userb
+        sys.modules["userbot"] = userb
+        sys.modules["uniborg"] = unib
+        sys.modules["sql_helpers"] = unib.sql_helpers
+        mod.borg = uni.borg
+        mod.Config = uni
+        spec.loader.exec_module(mod)
 
 class Module():
     def __init__(self, cls):
