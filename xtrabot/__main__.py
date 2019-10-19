@@ -32,10 +32,10 @@ for name in files:
         path1 = Path(f.name)
         shortname = path1.stem
         start_module(shortname.replace(".py", ""))
+print("Your Userbot Is Working.")
 
 if len(argv) not in (1, 3, 4):
     client.disconnect()
 else:
     client.run_until_disconnected()
 
-print("Your Userbot Is Working.")
