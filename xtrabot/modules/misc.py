@@ -25,7 +25,7 @@ class Misc(loader.Module):
         self.addxconfig("installed message", "Yay, {shortname} has been added to your modules!!", "the message to the left is the one pops up when the module is installed")
         self.addxconfig("directory", "xtrabot/modules/", "is the modules directory")
 
-    def install(self, event):
+    async def install(self, event):
         reply = await event.get_reply_message()
         text = await utils.answer(event, "Processing", call="reply")
         hmm = await self.client.download_file(reply, self.xconfig["directory"])
