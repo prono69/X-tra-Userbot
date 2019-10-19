@@ -29,7 +29,7 @@ class Ping(loader.Module):
         await event.edit(self.xconfig["PING"])
         end = datetime.now()
         ms = (end - start).microseconds / 1000
-        await event.edit(self.xconfig["PING"] + ms)
+        await event.edit("Pong!\n{}ms".format(ms))
 
     async def aboutpingcmd(self, event):
         await event.edit((self.xconfig["PING"]).about())
