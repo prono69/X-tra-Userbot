@@ -27,7 +27,7 @@ class Misc(loader.Module):
 
     async def install(self, event):
         reply = await event.get_reply_message()
-        text = await event.reply("Processing...")
+        text = await utils.answer(event, "Processing...", call="reply")
         hmm = await event.client.download_media(reply, self.xconfig["directory"])
         path = Path(hmm)
         try:
@@ -36,6 +36,6 @@ class Misc(loader.Module):
             await utils.answer(text, str(e), call="edit")
             return
         else:
-            await utils.answer(text, (self.xconfig["installed message"]).format(path.stem.replace(".py", "")), call="edit")
+            await utils.answer(text, (self.xconfig["installed message"][0]).format(path.stem.replace(".py", "")), call="edit")
 
 Module(Misc)
