@@ -26,10 +26,10 @@ import io
 class Eval(loader.Module):
     def __init__(self):
         self.name = "eval"
-        super().__init__(self.eval)
+        super().__init__(self.exc)
         self.addxconfig("exec", "Processing...", "This is the Processing message when the script is being run")
 
-    async def eval(self, event):
+    async def exc(self, event):
         await utils.answer(event, self.xconfig["exec"][0])
         cmd = event.text.split(" ", maxsplit=1)[1]
         reply_to_id = event.message.id
