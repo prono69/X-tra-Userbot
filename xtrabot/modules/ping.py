@@ -21,7 +21,7 @@ def start(eb):
     eb(Ping)
 
 class Ping(loader.Module):
-    def __init__:
+    def __init__(self):
         self.name = "ping"
         super().__init__(self)
         self.addxconfig("PING", "Pong!\n", "Defines Ping Message")
