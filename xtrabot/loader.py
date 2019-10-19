@@ -30,8 +30,8 @@ class Module():
             funct = [funct]
         for i in funct:
             func = i
-            if func.__name__.endswith("cmd"):
-                funcmd = re.compile("^."+func.__name__.replace("cmd", ""))
+            if 1==1:
+                funcmd = re.compile("^."+func.__name__)
                 try:
                     func_name[self.name].append(func)
                 except KeyError:
