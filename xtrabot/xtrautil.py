@@ -57,7 +57,7 @@ class Module():
     def __init__(self, cls):
         try:
             cls()
-        except Excaption as e:
+        except Exception as e:
             print(e)
 
 
