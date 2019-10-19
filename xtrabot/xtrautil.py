@@ -15,13 +15,23 @@
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 from xtrabot import UniSupport as uni, client, PPESupport as ppe
-import xtrabot.compat.userbot
-import xtrabot.compat.uniborg
 import re
 from telethon import events
 import sys
 import importlib
 from pathlib import Path
+
+if 1==1:
+    path = Path(f"xtrabot/compat/userbot")
+    name = "xtrabot.compat.userbot".format(shortname)
+    spec = importlib.util.spec_from_file_location(name, path)
+    userb = importlib.util.module_from_spec(spec)
+
+if 1==1:
+    path = Path(f"xtrabot/compat/uniborg")
+    name = "xtrabot.compat.uniborg".format(shortname)
+    spec = importlib.util.spec_from_file_location(name, path)
+    unib = importlib.util.module_from_spec(spec)
 
 def start_module(shortname):
     path = Path(f"xtrabot/modules/{shortname}.py")
@@ -42,12 +52,12 @@ def start_module(shortname):
             except:
                 print("This is not a valid plugin. Although it might be a UniBorg plugin it is not supported.")
             else:
-                sys.modules["userbot.modules"] = xtrabot.compat.userbot
-                sys.modules["userbot"] = xtrabot.compat.userbot
+                sys.modules["userbot.modules"] = userb
+                sys.modules["userbot"] = userb
                 spec.loader.exec_module(mod)
         else:
-            sys.modules["uniborg"] = xtrabot.compat.uniborg
-            sys.modules["sql_helpers"] = xtrabot.compat.uniborg.sql_helpers
+            sys.modules["uniborg"] = unib
+            sys.modules["sql_helpers"] = unib.sql_helpers
             mod.borg = uni.borg
             mod.Config = uni
             spec.loader.exec_module(mod)
