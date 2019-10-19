@@ -26,10 +26,11 @@ import io
 class Exec(loader.Module):
     def __init__(self):
         self.name = "exec"
-        super().__init__(exec1)
+        super().__init__(self.exec1)
+        self.addxconfig("exec", "Processing...", "This is the Processing message when the script is being run")
 
     async def exec1(self, event):
-        await utils.answer(event, "Processing ...")
+        await utils.answer(event, self.xconfig["exec"])
         cmd = event.text.split(" ", maxsplit=1)[1]
         reply_to_id = event.message.id
         if event.reply_to_msg_id:
