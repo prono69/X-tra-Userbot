@@ -15,7 +15,7 @@
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 from xtrabot import loader, utils
-from xtrabot.xtrautils import start_module
+from xtrabot.xtrautil import start_module
 from pathlib import Path
 
 class Misc(loader.Module):
