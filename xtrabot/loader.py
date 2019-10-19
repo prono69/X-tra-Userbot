@@ -28,7 +28,7 @@ class Module():
             self.name = "untitled"
         cmd = cls.__dict__
         for i in cmd:
-            if not cmd.endswith("cmd"):
+            if not i.endswith("cmd"):
                 del cmd[i]
         for i in cmd:
             func = cmd[i]
