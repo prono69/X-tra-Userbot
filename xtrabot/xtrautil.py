@@ -23,13 +23,13 @@ from pathlib import Path
 
 if 1==1:
     path = Path(f"xtrabot/compat/userbot")
-    name = "xtrabot.compat.userbot".format(shortname)
+    name = "xtrabot.compat.userbot"
     spec = importlib.util.spec_from_file_location(name, path)
     userb = importlib.util.module_from_spec(spec)
 
 if 1==1:
     path = Path(f"xtrabot/compat/uniborg")
-    name = "xtrabot.compat.uniborg".format(shortname)
+    name = "xtrabot.compat.uniborg"
     spec = importlib.util.spec_from_file_location(name, path)
     unib = importlib.util.module_from_spec(spec)
 
