@@ -1,4 +1,4 @@
-async def answer(event, text **args):
+async def answer(event, text, **args):
     call = args.get("call", "edit")
     actions = {"edit": event.edit, "reply": event.reply, "respond": event.respond}
     action = actions[call]
