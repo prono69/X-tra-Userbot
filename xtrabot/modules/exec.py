@@ -62,7 +62,7 @@ class Eval(loader.Module):
         else:
             evaluation = "Success"
 
-        final_output = "**EVAL**: `{}` \n\n **OUTPUT**: \n`{}` \n".format(cmd, evaluation)
+        final_output = "**EXC**: `{}` \n\n **OUTPUT**: \n`{}` \n".format(cmd, evaluation)
         await utils.answer(event, final_output)
 
     async def aexec(self, code, event):
