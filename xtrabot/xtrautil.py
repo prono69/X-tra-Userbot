@@ -16,6 +16,7 @@
 
 from xtrabot import UniSupport as uni, client, PPESupport as ppe
 from xtrabot.compat import userbot as xtrabot.compat.userbot, uniborg as xtrabot.compat.uniborg
+from xtrabot.compat.uniborg import sql_helpers as xtrabot.compat.uniborg.sql_helpers
 import re
 from telethon import events
 import sys
@@ -46,6 +47,7 @@ def start_module(shortname):
                 spec.loader.exec_module(mod)
         else:
             sys.modules["uniborg"] = xtrabot.compat.uniborg
+            sys.modules["sql_helpers"] = xtrabot.compat.uniborg.sql_helpers
             mod.borg = uni.borg
             mod.Config = uni
             spec.loader.exec_module(mod)
