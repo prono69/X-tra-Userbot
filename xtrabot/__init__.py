@@ -49,7 +49,13 @@ else:
     client = TelegramClient("one", API_ID, API_HASH)
 
 class PPESupport(object):
-    BOTLOG_CHATID = int(os.environ.get("BOTLOG_CHATID", None))
+    BOTLOG_CHATID = os.environ.get("BOTLOG", None)
+    if BOTLOG_CHATID != None:
+        try:
+            BOTLOG_CHATID = int(BOTLOG_CHATID)
+        except ValueError:
+            raise ValueError("Invalid botlog CHATID. Make sure your ID is starts with -100 and make sure that it is only numbers.")
+            quit(1)
     BOTLOG = sb(os.environ.get("BOTLOG", "False"))
     LOGSPAMMER = sb(os.environ.get("LOGSPAMMER", "False"))
     PM_AUTO_BAN = sb(os.environ.get("PM_AUTO_BAN", "False"))
