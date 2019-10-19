@@ -15,7 +15,7 @@
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 from xtrabot import loader, utils
-from xtrabot.xtrautil import start_module
+from xtrabot.xtrautil import start_module, Module
 from pathlib import Path
 
 class Misc(loader.Module):
@@ -37,3 +37,5 @@ class Misc(loader.Module):
             return
         else:
             await utils.answer(text, (self.xconfig["installed message"]).format(path.stem.replace(".py", "")))
+
+Module(Misc)
