@@ -26,7 +26,7 @@ class Util(loader.Module):
 
     async def ping(self, event):
         start = datetime.now()
-        await utils.answer(event, self.xconfig["PING"])
+        await utils.answer(event, self.xconfig["PING"][0])
         end = datetime.now()
         ms = (end - start).microseconds / 1000
         await event.edit("Pong!\n{}ms".format(ms))
