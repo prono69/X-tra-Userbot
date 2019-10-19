@@ -15,6 +15,7 @@
 #    along with this program.  If not, see <https://www.gnu.org/licenses/
 
 from xtrabot import PPESupport as ppe, UniSupport as uni
+import re
 class SupportMods():
     def uniadmin(self, pattern=None, **args):
         args["pattern"] = re.compile(uni.COMMAND_HAND_LER + pattern)
