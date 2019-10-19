@@ -23,7 +23,7 @@ from pathlib import Path
 import glob
 from xtrabot.xtrautil import start_module
 
-bot.start()
+client.start()
 
 path = 'xtrabot/modules/*.py'
 files = glob.glob(path)
@@ -34,8 +34,8 @@ for name in files:
         start_module(shortname.replace(".py", ""))
 
 if len(argv) not in (1, 3, 4):
-    bot.disconnect()
+    client.disconnect()
 else:
-    bot.run_until_disconnected()
+    client.run_until_disconnected()
 
 print("Your Userbot Is Working.")
