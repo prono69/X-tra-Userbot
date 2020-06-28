@@ -32,7 +32,9 @@ else:
 
 API_ID = os.environ.get("API_ID", None)
 API_HASH = os.environ.get("API_HASH", None)
-class Var(object):
+
+
+class Var((object)):
     DB_URI = os.environ.get("DATABASE_URL", None)
     TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TEMP_DOWNLOAD_DIRECTORY", None)
     PRIVATE_GROUP_ID = os.environ.get("PRIVATE_GROUP_ID", None)
@@ -41,21 +43,21 @@ class Var(object):
             PRIVATE_GROUP_ID = int(PRIVATE_GROUP_ID)
         except ValueError:
             raise ValueError("Invalid Private Group ID. Make sure your ID is starts with -100 and make sure that it is only numbers.")
-            quit(1)
 
 if "STRING_SESSION" in os.environ:
     client = TelegramClient(StringSession(STRING_SESSION), API_ID, API_HASH)
 else:
     client = TelegramClient("one", API_ID, API_HASH)
 
-class PPESupport(object):
+
+
+class PPESupport((object)):
     BOTLOG_CHATID = os.environ.get("BOTLOG", None)
     if BOTLOG_CHATID != None:
         try:
             BOTLOG_CHATID = int(BOTLOG_CHATID)
         except ValueError:
             raise ValueError("Invalid botlog CHATID. Make sure your ID is starts with -100 and make sure that it is only numbers.")
-            quit(1)
     BOTLOG = sb(os.environ.get("BOTLOG", "False"))
     LOGSPAMMER = sb(os.environ.get("LOGSPAMMER", "False"))
     PM_AUTO_BAN = sb(os.environ.get("PM_AUTO_BAN", "False"))
@@ -104,7 +106,10 @@ class PPESupport(object):
     AFKREASON = None
     bot = client
 
-class UniSupport(object):
+
+
+
+class UniSupport((object)):
     LOGGER = True
     OPEN_WEATHER_MAP_APPID = os.environ.get("OPEN_WEATHER_MAP_APPID", None)
     SCREEN_SHOT_LAYER_ACCESS_KEY = os.environ.get("SCREEN_SHOT_LAYER_ACCESS_KEY", None)
@@ -120,7 +125,10 @@ class UniSupport(object):
     GOOGLE_SEARCH_COUNT_LIMIT = int(os.environ.get("GOOGLE_SEARCH_COUNT_LIMIT", 9))
     TG_GLOBAL_ALBUM_LIMIT = int(os.environ.get("TG_GLOBAL_ALBUM_LIMIT", 9))
     MAX_MESSAGE_SIZE_LIMIT = 4095
-    UB_BLACK_LIST_CHAT = set(int(x) for x in os.environ.get("UB_BLACK_LIST_CHAT", "").split())
+    UB_BLACK_LIST_CHAT = {
+        int(x) for x in os.environ.get("UB_BLACK_LIST_CHAT", "").split()
+    }
+
     MAX_ANTI_FLOOD_MESSAGES = 10
     ANTI_FLOOD_WARN_MODE = ChatBannedRights(
         until_date=None,
@@ -138,7 +146,7 @@ class UniSupport(object):
     PM_LOGGR_BOT_API_ID = int(os.environ.get("PM_LOGGR_BOT_API_ID", "-100"))
     DB_URI = os.environ.get("DATABASE_URL", None)
     COMMAND_HAND_LER = os.environ.get("COMMAND_HAND_LER", "\.")
-    SUDO_USERS = set(int(x) for x in os.environ.get("SUDO_USERS", "").split())
+    SUDO_USERS = {int(x) for x in os.environ.get("SUDO_USERS", "").split()}
     VERY_STREAM_LOGIN = os.environ.get("VERY_STREAM_LOGIN", None)
     VERY_STREAM_KEY = os.environ.get("VERY_STREAM_KEY", None)
     TEMP_DIR = os.environ.get("TEMP_DIR", None)
