@@ -29,8 +29,8 @@ class Module():
         if type(funct) is not list:
             funct = [funct]
         for i in funct:
-            func = i
             if 1==1:
+                func = i
                 funcmd = re.compile("^."+func.__name__)
                 try:
                     func_name[self.name].append(func)
